@@ -1,0 +1,40 @@
+{
+    "BigQuery Schema":[
+        {
+            "name":"Store",
+            "type":"INTEGER"
+        },
+        {
+            "name":"DayOfWeek",
+            "type":"INTEGER"
+        },
+        {
+            "name":"Date",
+            "type":"DATE"
+        },
+        {
+            "name":"Sales",
+            "type":"INTEGER"
+        },
+        {
+            "name":"Customers",
+            "type":"STRING"
+        },
+        {
+            "name":"Open",
+            "type":"STRING"
+        },
+        {
+            "name":"Promo",
+            "type":"STRING"
+        },
+        {
+            "name":"StateHoliday",
+            "type":"STRING"
+        },
+        {
+            "name":"SchoolHoliday",
+            "type":"STRING"
+        }
+    ]
+}
