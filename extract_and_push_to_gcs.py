@@ -23,14 +23,14 @@ def download_and_upload_to_gcs():
     os.system('kaggle competitions download -c rossmann-store-sales')
     
     # Extract the downloaded zip file
-    os.system('tar -xf rossmann-store-sales.zip')
+    os.system('unzip rossmann-store-sales.zip')
     
-    os.system('mkdir /home/airflow/.config')
-    os.system('mkdir /home/airflow/.config/kaggle')
+    # os.system('mkdir /home/airflow/.config')
+    # os.system('mkdir /home/airflow/.config/kaggle')
     
-    os.system('cp kaggle.json /home/airflow/.config/')
+    # os.system('cp kaggle.json /home/airflow/.config/')
     # Remove the sample submission file as it's not needed
-    os.system('del sample_submission.csv store.csv')
+    os.system('rm sample_submission.csv store.csv')
 
     try:
         # Iterate through all files in current directory
