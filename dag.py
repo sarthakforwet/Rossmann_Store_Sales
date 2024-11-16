@@ -21,14 +21,15 @@ dag = DAG('fetch_rossman_data',
           catchup=False)
 
 with dag:
-    setup_kaggle = BashOperator(
-        task_id = 'setup_kaggle_credentials',
-        bash_command = '''
-        mkdir -p /home/airflow/.config
-        mkdir -p /home/airflow/.config/kaggle
-        cp /home/airflow/gcs/dags/data/kaggle.json /home/airflow/.config/kaggle/
-        '''
-    )
+    # setup_kaggle = BashOperator(
+    #     task_id = 'setup_kaggle_credentials',
+    #     bash_command = '''
+    #     mkdir -p /home/airflow/.config
+    #     mkdir -p /home/airflow/.config/kaggle
+    #     cp /home/airflow/gcs/dags/data/kaggle.json /home/airflow/.config/kaggle/
+    #     chmod 600 /home/airflow/.config/kaggle/kaggle.json
+    #     '''
+    # )
 
     run_script_task = BashOperator(
         task_id='run_script',
