@@ -18,3 +18,6 @@ Following is a pictorial demonstration of the complete pipeline -
 
 ![Pipeline Image]()
 
+
+Initially, I required kaggle.josn file and so I created another task in DAG and it transferrd the kaggle.json file to the cloud storage but then I removed it as it was giving error regarding the file already exists.
+
