@@ -6,17 +6,20 @@ def trigger_df_job(cloud_event,environment):
     service = build('dataflow', 'v1b3')
     project = "smooth-mason-436217-p3"
 
-    template_path = "gs://dataflow-templates-us-central1/latest/GCS_Text_to_BigQuery"
+    template_path = "gs://dataflow-templates-us-central1/latest/GCS_CSV_to_BigQuery"
 
     template_body = {
-        "jobName": "bq-load",  # Provide a unique name for the job
+        "jobName": "rossman_load",  # Provide a unique name for the job
         "parameters": {
-        "javascriptTextTransformGcsPath": "gs://looker-analysis/udf.js",
-        "JSONPath": "gs://looker-analysis/bq.json",
-        "javascriptTextTransformFunctionName": "transform",
-        "outputTable": "smooth-mason-436217-p3:rossman_store.rossman_store_sales",
-        "inputFilePattern": "gs://looker-analysis/*.csv",
-        "bigQueryLoadingTemporaryDirectory": "gs://looker-analysis/BigQueryWriteTemp",
+            "inputFilePattern": "gs://looker-analysis/*.csv",
+            "schemaJSONPath": "gs://looker-analysis/bq.json",
+            "outputTable": "smooth-mason-436217-p3:rossman_store.store_sales",
+            "bigQueryLoadingTemporaryDirectory": "gs://looker-analysis/BigQueryWriteTemp/",
+            "badRecordsOutputTable": "smooth-mason-436217-p3:rossman_store.bq_bad_records",
+            "containsHeaders": "true",
+            "delimiter": ",",
+            "csvFormat": "Default",
+            "csvFileEncoding": "UTF-8"
         }
     }
 
