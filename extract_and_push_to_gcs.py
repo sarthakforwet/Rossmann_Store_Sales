@@ -25,9 +25,6 @@ def download_and_upload_to_gcs():
     # Extract the downloaded zip file
     os.system('unzip rossmann-store-sales.zip')
     
-    # os.system('mkdir /home/airflow/.config')
-    # os.system('mkdir /home/airflow/.config/kaggle')
-    
     # os.system('cp kaggle.json /home/airflow/.config/')
     # Remove the sample submission file as it's not needed
     os.system('rm sample_submission.csv store.csv')
@@ -37,6 +34,8 @@ def download_and_upload_to_gcs():
         for filename in os.listdir('./'):
             # Process only CSV files
             if filename.endswith('.csv'):
+                
+                # Pre-processing
                 
                 # Log the current file being processed
                 print(f"Processing {filename}...")
