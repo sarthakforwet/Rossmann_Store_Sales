@@ -37,6 +37,8 @@ Key features include:
 - `StateHoliday` & `SchoolHoliday`: Indicators for holidays
 - And more!
 
+![Feature Importance](feature_importance.png)
+
 For more details, visit the dataset source on [Kaggle](https://www.kaggle.com/c/rossmann-store-sales/data).
 
 <i>Note: The purpose of this project is to demonstrate the end-to-end machine learning pipeline using Google Cloud and not gaining a good performance on the model and thus we would not be using the `Store.csv` file.<i>
