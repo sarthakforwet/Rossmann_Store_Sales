@@ -67,3 +67,5 @@ The analysis includes insightful visualizations like bar charts, heatmaps, and s
    ```bash
    git clone https://github.com/sarthakforwet/Rossman_Store_Sales.git
     ```
+
+To see the project in action and to learn more about it watch <a href="https://youtu.be/3vfyCCxXqcg">this</a> video.
