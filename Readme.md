@@ -41,7 +41,7 @@ Key features include:
 
 For more details, visit the dataset source on [Kaggle](https://www.kaggle.com/c/rossmann-store-sales/data).
 
-<i>Note: The purpose of this project is to demonstrate the end-to-end machine learning pipeline using Google Cloud and not gaining a good performance on the model and thus we would not be using the `Store.csv` file.<i>
+<i>Note: The purpose of this project is to demonstrate the end-to-end machine learning pipeline using Google Cloud and thus the `Store.csv` file is not being used.<i>
 
 ## Approach
 The project follows the CRISP-DM methodology:
