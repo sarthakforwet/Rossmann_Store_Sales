@@ -5,6 +5,20 @@ from kaggle.api.kaggle_api_extended import KaggleApi  # Kaggle API for data down
 import pandas as pd  # For data manipulation
 import json  # For JSON operations
 
+
+def preprocess(df):
+    # Encoding StateHolidy values
+    df['StateHoliday'] = df['StateHoliday'].map({'0':0,'a':1, 'b':2, 'c':3})
+
+    boolCols = ['Open', 'Promo', 'SchoolHoliday']
+    df[boolCols] = df[boolCols].astype(int).astype(bool)
+    df['Customers'] = df['Customers'].astype(int)
+
+    # Removing outliers
+    df = df.loc[(~(df['Sales']>4e+04) & ~(df['Customers']>7e+03))]
+
+    return df
+
 def download_and_upload_to_gcs():
     """
     Downloads data from Kaggle competition and uploads it to Google Cloud Storage.
@@ -39,6 +53,13 @@ def download_and_upload_to_gcs():
                 
                 # Log the current file being processed
                 print(f"Processing {filename}...")
+
+                # Preprocessing code for train.csv and test.csv
+                df = pd.read_csv(filename)
+
+                # Perform Preprocessing
+                df = preprocess(df)
+                df.to_csv(filename, index=False)
                 
                 # Create a blob (file) reference in the GCS bucket
                 blob = bucket.blob(filename)
